@@ -77,6 +77,27 @@ body {
       font-family: sans-serif;
       font-weight: 400;
       margin-top: px-to-rem(40px);
+      cursor: pointer;
+    }
+  }
+
+  &__details{
+    margin-top: px-to-rem(500px);
+    margin-left: px-to-rem(-500px);
+
+    &__underscore{
+      width: px-to-rem(500px);
+      height: px-to-rem(1px);
+      background-color: #6d6e70;
+      margin-top: px-to-rem(20px);
+    }
+
+    &__hdl{
+      color: white;
+      font-size: px-to-rem(30px);
+      font-family: sans-serif;
+      font-weight: 400;
+      margin-top: px-to-rem(100px);
     }
   }
 }
@@ -89,4 +110,100 @@ body {
   right: 0;
   bottom: 0;
   z-index: -1;
+}
+
+
+.card__details__container{
+  @include flex(flex-start, column);
+  width: px-to-rem(500px);
+
+  &__dsc{
+    width: px-to-rem(250px);
+    color: #6d6e70;
+    font-size: px-to-rem(25px);
+    font-family: sans-serif;
+    font-weight: 400;
+
+    &__item{
+      margin-top: px-to-rem(40px);
+    }
+  }
+  &__info{
+    width: px-to-rem(250px);
+    color: white;
+    font-size: px-to-rem(25px);
+    font-family: sans-serif;
+    font-weight: 400;
+    text-align: right;
+
+    &__item{
+      margin-top: px-to-rem(40px);
+    }
+  }
+}
+
+
+.weather{
+  margin-top: px-to-rem(500px);
+
+  &__container{
+    @include flex(center, row);
+    width: px-to-rem(800px);
+    height: 300px;
+
+    &__item{
+      color: white;
+      font-size: px-to-rem(150px);
+      font-family: sans-serif;
+      font-weight: 400;
+    }
+
+    &__box{
+      @include flex(center, column);
+      margin-left: px-to-rem(20px);
+
+      &__item{
+        color: white;
+        font-size: px-to-rem(60px);
+        font-family: sans-serif;
+        font-weight: 400;
+        margin-top: px-to-rem(180px);
+      }
+
+      &__details{
+        @include flex(center, row);
+        margin-left: px-to-rem(-200px);
+
+        &__item{
+          color: white;
+          font-size: px-to-rem(20px);
+          font-family: sans-serif;
+          font-weight: 400;
+          margin-top: px-to-rem(260px);
+        }
+      }
+    }
+
+    &__column{
+      @include flex(center, column);
+      margin-left: px-to-rem(40px);
+
+      &__item{
+        color: white;
+        font-size: px-to-rem(20px);
+        font-family: sans-serif;
+        font-weight: 400;
+        margin-top: px-to-rem(260px);
+        margin-left: px-to-rem(-60px);
+      }
+
+      &__img{
+        background-image: url("../../images/rain.png");
+        width: px-to-rem(70px);
+        height: px-to-rem(70px);
+        background-size: cover;
+        margin-top: px-to-rem(180px);
+      }
+    }
+  }
 }
