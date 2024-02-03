@@ -117,6 +117,13 @@ body {
   @include flex(flex-start, column);
   width: px-to-rem(500px);
 
+  &__underscore{
+    width: px-to-rem(500px);
+    height: px-to-rem(1px);
+    background-color: #6d6e70;
+    margin-top: px-to-rem(40px);
+  }
+
   &__dsc{
     width: px-to-rem(250px);
     color: #6d6e70;
@@ -148,7 +155,7 @@ body {
 
   &__container{
     @include flex(center, row);
-    width: px-to-rem(800px);
+    width: px-to-rem(1200px);
     height: 300px;
 
     &__item{
@@ -161,6 +168,7 @@ body {
     &__box{
       @include flex(center, column);
       margin-left: px-to-rem(20px);
+      width: px-to-rem(300px);
 
       &__item{
         color: white;
@@ -171,15 +179,18 @@ body {
       }
 
       &__details{
-        @include flex(center, row);
-        margin-left: px-to-rem(-200px);
+        @include flex(center, center);
+        margin-left: px-to-rem(-10px);
+        width: px-to-rem(300px);
+        position: absolute;
+        margin-top: px-to-rem(260px);
 
         &__item{
           color: white;
           font-size: px-to-rem(20px);
           font-family: sans-serif;
           font-weight: 400;
-          margin-top: px-to-rem(260px);
+          margin: 0;
         }
       }
     }
