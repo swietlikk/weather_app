@@ -1,0 +1,34 @@
+@use "sass:map";
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1400px
+);
+
+@function hasKey($map, $key) {
+  @each $k, $v in $map {
+    @if $k == $key {
+      @return true;
+    }
+  }
+  @return false
+}
+
+
+@mixin mq($bp){
+  $width: map.get($grid-breakpoints, $bp);
+
+  @if not map.has-key($grid-breakpoints, $bp){
+    @warn 'Klucza: #{$bp} nie ma w mapiebreakpointów. Wybierz jeden z tych: xs, sm, md,lg, xl, xxl. Domyślnie ustawiam xs.';
+    $width: xs;
+  }
+
+
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}

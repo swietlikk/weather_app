@@ -1,0 +1,92 @@
+@import "../../helpers/functions.scss";
+@import "../../helpers/mixins.scss";
+@import "../../typography/variables.scss";
+@import "../../typography/media_queries.scss";
+
+body {
+  background-image: url('../../images/rain-bgc.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: px-to-rem(1058.89px);
+}
+
+.header {
+  width: px-to-rem(500px);
+  @include flex(center, center);
+
+  &__inner {
+    box-sizing: border-box;
+    @include flex(center, center);
+    position: relative;
+    width: px-to-rem(500px);
+
+    .logo{
+      color: white;
+      font-size: px-to-rem(30px);
+      font-family: sans-serif;
+      font-weight: 400;
+      margin-bottom: 0;
+      padding-top: px-to-rem(80px);
+      z-index: 47;
+    }
+  }
+}
+
+.card {
+  @include flex(center, column);
+  background-color: rgba(0, 0, 0, 0.4);
+  width: px-to-rem(700px);
+  height: px-to-rem(1058.89px);
+  right: 0;
+  position: absolute;
+  top: 0;
+  backdrop-filter: blur(20px);
+  z-index: 1;
+  opacity: 99%;
+
+  &__locations{
+      margin-top: px-to-rem(100px);
+      margin-left: px-to-rem(-50px);
+
+    &__search{
+      background: none;
+      border: none;
+      color: #6d6e70;
+      font-size: px-to-rem(30px);
+      font-family: sans-serif;
+      font-weight: 400;
+
+      &:focus {
+        outline: none;
+        border: none;
+      }
+    }
+
+    &__underscore{
+      width: px-to-rem(500px);
+      height: px-to-rem(1px);
+      background-color: #6d6e70;
+      margin-top: px-to-rem(20px);
+    }
+
+    &__example{
+      color: #6d6e70;
+      font-size: px-to-rem(25px);
+      font-family: sans-serif;
+      font-weight: 400;
+      margin-top: px-to-rem(40px);
+    }
+  }
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}

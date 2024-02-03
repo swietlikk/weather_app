@@ -1,0 +1,35 @@
+@import "../typography/variables.scss";
+
+@mixin flex($horizontal: flex-start, $vertical: flex-start, $wrap: nowrap){
+  display: flex;
+  justify-content: $horizontal;
+  align-items: $vertical;
+  flex-direction: $wrap;
+}
+
+@mixin link($color, $bg-color) {
+  &:link {
+    @content;
+  }
+
+  &:visited {
+    @content;
+  }
+
+  &:hover, &--current {
+    @content;
+    color: $color;
+    background-color: $bg-color;
+  }
+
+  &:active {
+    @content;
+  }
+
+}
+
+@mixin tablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
