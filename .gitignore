@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 
-src/components/weather/weather.jsx
+src/components/weather/Weather.jsx
