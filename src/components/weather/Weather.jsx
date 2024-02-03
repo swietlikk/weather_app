@@ -5,6 +5,7 @@ import './weather.scss';
 const Weather = () => {
     const [weatherData, setWeatherData] = useState({});
     const [location, setLocation] = useState('London');
+    const [searchText, setSearchText] = useState('');
 
     useEffect(() => {
         const apiKey = '6e764a969f2d2dad5e2c19d1418da65e';
@@ -26,29 +27,27 @@ const Weather = () => {
         const body = document.body;
 
         if (weatherDescription && weatherDescription.includes('clear')) {
-            body.style.backgroundImage = "url('https://img.freepik.com/free-photo/cloud-blue-sky_1232-3108.jpg?w=1380&t=st=1706995718~exp=1706996318~hmac=5aab55f3ceccd273f31d330001a41e5ee592f71533cf2e8fec6c2084bf21769d')";
+            body.style.backgroundImage = "url('https://images.pexels.com/photos/3768/sky-sunny-clouds-cloudy.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')";
         }
         if (weatherDescription && weatherDescription.includes('snow')) {
-            body.style.backgroundImage = "url('https://img.freepik.com/free-photo/christmas-background-with-snow-overlay-design_1048-14808.jpg?w=1380&t=st=1706995100~exp=1706995700~hmac=a7407b8ded199c51d841f0f5752d3c00949f0a813038e452e9642c4e3c6afcc0')";
+            body.style.backgroundImage = "url('https://images.pexels.com/photos/730256/pexels-photo-730256.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')";
         }
         if (weatherDescription && weatherDescription.includes('clouds')) {
-            body.style.backgroundImage = "url('https://img.freepik.com/free-photo/black-rain-abstract-dark-power_1127-2380.jpg?w=1380&t=st=1706995312~exp=1706995912~hmac=8694c9eb1ad1febf68cc382c4b99b78b6927078bff1cb077d72030ff80e55256')";
+            body.style.backgroundImage = "url('https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')";
         }
         if (weatherDescription && weatherDescription.includes('fog')) {
-            body.style.backgroundImage = "url('https://img.freepik.com/free-photo/aerial-shot-tall-spruce-trees-foggy-yellow-sky_181624-29030.jpg?w=1380&t=st=1706995443~exp=1706996043~hmac=5ac366aab257b3f238315d837c162df5e6c76b34b11cbff4d0195dcf597c44ef')";
+            body.style.backgroundImage = "url('https://images.pexels.com/photos/1367192/pexels-photo-1367192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')";
         }
         if (weatherDescription && weatherDescription.includes('mist')) {
-            body.style.backgroundImage = "url('https://img.freepik.com/free-photo/aerial-shot-tall-spruce-trees-foggy-yellow-sky_181624-29030.jpg?w=1380&t=st=1706995443~exp=1706996043~hmac=5ac366aab257b3f238315d837c162df5e6c76b34b11cbff4d0195dcf597c44ef')";
+            body.style.backgroundImage = "url('https://images.pexels.com/photos/1367192/pexels-photo-1367192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')";
         }
         if (weatherDescription && weatherDescription.includes('storm')) {
-            body.style.backgroundImage = "url('https://img.freepik.com/free-photo/view-apocalyptic-dark-clouds_23-2151065808.jpg?t=st=1706995539~exp=1706999139~hmac=d5f4169d16c70c41b0137ae3ad1fe9d4c657ce42cc78a9583d290a9904eb0642&w=1380')";
+            body.style.backgroundImage = "url('https://images.pexels.com/photos/1162251/pexels-photo-1162251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')";
         }
-
+        if (weatherDescription && weatherDescription.includes('rain')) {
+            body.style.backgroundImage = "url('https://media.istockphoto.com/id/1257951336/pl/zdj%C4%99cie/przezroczysty-parasol-pod-deszczem-przed-kroplami-wody-rozpryskuje-si%C4%99-t%C5%82o-deszczowa-pogoda.jpg?s=612x612&w=0&k=20&c=MuXhpU6rmNm41StaJ_UDvtY9bPHIBqoPVlf0eku7TLw=')";
+        }
     };
-
-
-
-
 
     const checkAndChangepng = () => {
         const weatherDescription = weatherData.weather?.[0]?.description?.toLowerCase();
@@ -77,9 +76,27 @@ const Weather = () => {
         }
     };
 
+    const getCurrentTime = () => {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        return `${hours}:${minutes}`;
+    };
 
+    const getCurrentDayOfWeek = () => {
+        const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const now = new Date();
+        const dayOfWeek = daysOfWeek[now.getDay()];
+        return dayOfWeek;
+    };
 
-
+    const getCurrentDate = () => {
+        const now = new Date();
+        const day = now.getDate().toString().padStart(2, '0');
+        const month = now.toLocaleString('en-US', { month: 'short' });
+        const year = now.getFullYear().toString().slice(-2);
+        return `${day} ${month}'${year}`;
+    };
 
     return (
         <section>
@@ -94,13 +111,15 @@ const Weather = () => {
                         className="card__locations__search"
                         type="text"
                         placeholder="Search location"
-                        onKeyPress={(e) => e.key === 'Enter' && setLocation(e.target.value)}
+                        value={searchText}
+                        onChange={(e) => setSearchText(e.target.value)}
+                        onKeyPress={(e) => e.key === 'Enter' && setLocation(searchText)}
                     />
                     <div className="card__locations__underscore"></div>
-                    <p className="card__locations__example">Warsaw</p>
-                    <p className="card__locations__example">London</p>
-                    <p className="card__locations__example">New York</p>
-                    <p className="card__locations__example">Oslo</p>
+                    <p className="card__locations__example" onClick={() => setSearchText('Warsaw')}>Warsaw</p>
+                    <p className="card__locations__example" onClick={() => setSearchText('London')}>London</p>
+                    <p className="card__locations__example" onClick={() => setSearchText('New York')}>New York</p>
+                    <p className="card__locations__example" onClick={() => setSearchText('Oslo')}>Oslo</p>
                 </div>
                 <div className="card__details">
                     <div className="card__details__underscore"></div>
@@ -138,8 +157,7 @@ const Weather = () => {
                         </div>
                     </div>
                     <div className="weather__container__column">
-                        <div className="weather__container__column__img">
-                        </div>
+                        <div className="weather__container__column__img"></div>
                         <p className="weather__container__column__item">{weatherData.weather?.[0]?.description || 'Unknown'}</p>
                     </div>
                 </div>
@@ -149,25 +167,3 @@ const Weather = () => {
 };
 
 export default Weather;
-
-function getCurrentTime() {
-    const now = new Date();
-    const hours = now.getHours().toString().padStart(2, '0');
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    return `${hours}:${minutes}`;
-}
-
-function getCurrentDayOfWeek() {
-    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const now = new Date();
-    const dayOfWeek = daysOfWeek[now.getDay()];
-    return dayOfWeek;
-}
-
-function getCurrentDate() {
-    const now = new Date();
-    const day = now.getDate().toString().padStart(2, '0');
-    const month = now.toLocaleString('en-US', { month: 'short' });
-    const year = now.getFullYear().toString().slice(-2);
-    return `${day} ${month}'${year}`;
-}
