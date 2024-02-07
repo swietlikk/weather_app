@@ -6,9 +6,19 @@ const Weather = () => {
     const [weatherData, setWeatherData] = useState({});
     const [location, setLocation] = useState('London');
     const [searchText, setSearchText] = useState('');
+    const [backgroundImages] = useState([
+        'https://images.pexels.com/photos/207985/pexels-photo-207985.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.unsplash.com/photo-1535377998626-aa5a8c77076d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        'https://images.hdqwalls.com/wallpapers/rain-drops-window-4k-ee.jpg',
+        'https://images.unsplash.com/photo-1601297183305-6df142704ea2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        'https://images.unsplash.com/photo-1485249245068-d8dc50b77cc7?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        'https://images.unsplash.com/photo-1496034663057-6245f11be793?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        'https://images.unsplash.com/photo-1511800453077-8c0afa94175f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        'https://images.unsplash.com/photo-1536936343740-68cb2a95f935?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    ]);
 
     useEffect(() => {
-        const apiKey = '6e764a969f2d2dad5e2c19d1418da65e';
+        const apiKey = '37c247038df0edeaf9cb462cc882ede1';
         const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`;
 
         axios.get(apiUrl)
@@ -26,27 +36,8 @@ const Weather = () => {
         const weatherDescription = weatherData.weather?.[0]?.description?.toLowerCase();
         const body = document.body;
 
-        if (weatherDescription && weatherDescription.includes('clear')) {
-            body.style.backgroundImage = "url('https://images.pexels.com/photos/3768/sky-sunny-clouds-cloudy.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')";
-        }
-        if (weatherDescription && weatherDescription.includes('snow')) {
-            body.style.backgroundImage = "url('https://images.pexels.com/photos/730256/pexels-photo-730256.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')";
-        }
-        if (weatherDescription && weatherDescription.includes('clouds')) {
-            body.style.backgroundImage = "url('https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')";
-        }
-        if (weatherDescription && weatherDescription.includes('fog')) {
-            body.style.backgroundImage = "url('https://images.pexels.com/photos/1367192/pexels-photo-1367192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')";
-        }
-        if (weatherDescription && weatherDescription.includes('mist')) {
-            body.style.backgroundImage = "url('https://images.pexels.com/photos/1367192/pexels-photo-1367192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')";
-        }
-        if (weatherDescription && weatherDescription.includes('storm')) {
-            body.style.backgroundImage = "url('https://images.pexels.com/photos/1162251/pexels-photo-1162251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')";
-        }
-        if (weatherDescription && weatherDescription.includes('rain')) {
-            body.style.backgroundImage = "url('https://media.istockphoto.com/id/1257951336/pl/zdj%C4%99cie/przezroczysty-parasol-pod-deszczem-przed-kroplami-wody-rozpryskuje-si%C4%99-t%C5%82o-deszczowa-pogoda.jpg?s=612x612&w=0&k=20&c=MuXhpU6rmNm41StaJ_UDvtY9bPHIBqoPVlf0eku7TLw=')";
-        }
+        let randomIndex = Math.floor(Math.random() * backgroundImages.length);
+        body.style.backgroundImage = `url('${backgroundImages[randomIndex]}')`;
     };
 
     const checkAndChangepng = () => {
