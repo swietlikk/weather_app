@@ -153,6 +153,8 @@ const Weather = () => {
                     </div>
                 </div>
             </div>
+            <div className="bottom">
+            </div>
         </section>
     );
 };
