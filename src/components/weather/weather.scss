@@ -584,6 +584,7 @@ body {
   height: px-to-rem(100px);
   background-color: black;
   margin-top: px-to-rem(189px);
+  @include flex(center, center);
 
   @media screen and (max-width: px-to-rem(949px)) {
     margin-top: px-to-rem(-1px);
@@ -601,4 +602,39 @@ body {
   @media screen and (min-width: px-to-rem(1550px)) and (max-width: px-to-rem(1850px)) {
     margin-top: px-to-rem(-60px);
   }
+
+  &__container{
+    @include flex(center, center);
+    width: px-to-rem(400px);
+    height: px-to-rem(100px);
+
+
+
+    &__png{
+
+      &:nth-child(1){
+        background-image: url("src/images/email.png");
+        width: px-to-rem(40px);
+        height: px-to-rem(40px);
+        background-size: cover;
+        margin-inline: px-to-rem(20px);
+      }
+      &:nth-child(2){
+        background-image: url("src/images/github.png");
+        width: px-to-rem(40px);
+        height: px-to-rem(40px);
+        background-size: cover;
+        margin-inline: px-to-rem(20px);
+      }
+      &:nth-child(3){
+        background-image: url("src/images/linkedin.png");
+        width: px-to-rem(40px);
+        height: px-to-rem(40px);
+        background-size: cover;
+        margin-inline: px-to-rem(20px);
+      }
+    }
+  }
 }
+
+

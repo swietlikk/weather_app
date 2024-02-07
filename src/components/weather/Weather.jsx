@@ -154,6 +154,11 @@ const Weather = () => {
                 </div>
             </div>
             <div className="bottom">
+                <div className="bottom__container">
+                    <a href="mailto:adamos.swietlicki@gmail.com" target="_blank" className="bottom__container__png"></a>
+                    <a href="https://github.com/swietlikk" target="_blank" className="bottom__container__png"></a>
+                    <a href="https://www.linkedin.com/in/adam-swietlicki/" target="_blank" className="bottom__container__png"></a>
+                </div>
             </div>
         </section>
     );
