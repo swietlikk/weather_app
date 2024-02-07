@@ -175,7 +175,7 @@ body {
 
     @media screen and (max-width: px-to-rem(949px)) {
       margin-left: px-to-rem(-130px);
-      margin-top: px-to-rem(360px);
+      margin-top: px-to-rem(320px);
     }
 
     @media screen and (min-width: px-to-rem(950px)) and (max-width: px-to-rem(1274px)) {
@@ -213,7 +213,7 @@ body {
       margin-top: px-to-rem(60px);
       @media screen and (max-width: px-to-rem(949px)) {
         font-size: px-to-rem(10px);
-        margin-top: px-to-rem(60px);
+        margin-top: px-to-rem(30px);
       }
 
       @media screen and (min-width: px-to-rem(950px)) and (max-width: px-to-rem(1274px)) {
@@ -296,7 +296,7 @@ body {
       margin-top: px-to-rem(40px);
 
       @media screen and (max-width: px-to-rem(949px)) {
-        margin-top: px-to-rem(40px);
+        margin-top: px-to-rem(30px);
       }
     }
   }
@@ -324,7 +324,7 @@ body {
       margin-top: px-to-rem(40px);
 
       @media screen and (max-width: px-to-rem(949px)) {
-        margin-top: px-to-rem(40px);
+        margin-top: px-to-rem(30px);
       }
     }
   }
@@ -386,7 +386,7 @@ body {
       font-weight: 400;
       @media screen and (max-width: px-to-rem(949px)) {
         font-size: px-to-rem(45px);
-        margin-top: px-to-rem(-10px);
+        margin-top: px-to-rem(-100px);
         margin-left: px-to-rem(20px);
       }
 
@@ -411,7 +411,7 @@ body {
 
       @media screen and (max-width: px-to-rem(949px)) {
         @include flex(center, column);
-        margin-top: px-to-rem(-135px);
+        margin-top: px-to-rem(-235px);
         margin-left: px-to-rem(-150px);
         width: px-to-rem(300px);
       }
