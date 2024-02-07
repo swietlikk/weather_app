@@ -45,7 +45,7 @@ const Weather = () => {
         const icon = document.querySelector('.weather__container__column__img');
 
         if (weatherDescription && weatherDescription.includes('clear')) {
-            icon.style.backgroundImage = "url('/src/images/sunny.png";
+            icon.style.backgroundImage = "url('../../images/sunny.png";
         }
         if (weatherDescription && weatherDescription.includes('snow')) {
             icon.style.backgroundImage = "url('/src/images/icons8-snow-96.png";
@@ -146,10 +146,6 @@ const Weather = () => {
                             <p className="weather__container__box__details__item">,</p>
                             <p className="weather__container__box__details__item">{getCurrentDate()}</p>
                         </div>
-                    </div>
-                    <div className="weather__container__column">
-                        <div className="weather__container__column__img"></div>
-                        <p className="weather__container__column__item">{weatherData.weather?.[0]?.description || 'Unknown'}</p>
                     </div>
                 </div>
             </div>

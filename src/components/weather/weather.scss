@@ -392,11 +392,15 @@ body {
 
 
       @media screen and (min-width: px-to-rem(950px)) and (max-width: px-to-rem(1274px)) {
-        font-size: px-to-rem(50px);
+        font-size: px-to-rem(60px);
       }
 
       @media screen and (min-width: px-to-rem(1275px)) and (max-width: px-to-rem(1549px)) {
         font-size: px-to-rem(80px);
+      }
+
+      @media screen and (min-width: px-to-rem(1550px)) and (max-width: px-to-rem(1850px)) {
+       margin-top: px-to-rem(400px);
       }
     }
 
@@ -406,14 +410,14 @@ body {
       width: px-to-rem(300px);
 
       @media screen and (max-width: px-to-rem(949px)) {
-        @include flex(felx-start, column);
+        @include flex(center, column);
         margin-top: px-to-rem(-200px);
-        margin-left: px-to-rem(-200px);
+        margin-left: px-to-rem(-150px);
         width: px-to-rem(300px);
       }
 
       @media screen and (min-width: px-to-rem(950px)) and (max-width: px-to-rem(1274px)) {
-        margin-top: px-to-rem(-120px);
+        margin-top: px-to-rem(-110px);
         margin-left: px-to-rem(-60px);
       }
 
@@ -423,8 +427,8 @@ body {
       }
 
       @media screen and (min-width: px-to-rem(1550px)) and (max-width: px-to-rem(1850px)) {
-        margin-left: px-to-rem(-450px);
-        margin-top: px-to-rem(125px);
+        margin-left: px-to-rem(80px);
+        margin-top: px-to-rem(40px);
         width: px-to-rem(260px);
       }
 
@@ -443,7 +447,8 @@ body {
         }
 
         @media screen and (min-width: px-to-rem(950px)) and (max-width: px-to-rem(1274px)) {
-          font-size: px-to-rem(25px);
+          font-size: px-to-rem(35px);
+          margin-left: px-to-rem(35px);
         }
 
         @media screen and (min-width: px-to-rem(1275px)) and (max-width: px-to-rem(1549px)) {
@@ -486,8 +491,8 @@ body {
           }
 
           @media screen and  (min-width: px-to-rem(950px)) and (max-width: px-to-rem(1274px)) {
-            font-size: px-to-rem(8px);
-            margin-top: px-to-rem(-90px);
+            font-size: px-to-rem(11px);
+            margin-top: px-to-rem(-80px);
           }
 
           @media screen and (min-width: px-to-rem(1275px)) and (max-width: px-to-rem(1549px)) {
@@ -498,83 +503,6 @@ body {
       }
     }
 
-    &__column{
-      @include flex(center, column);
-      margin-left: px-to-rem(40px);
-
-      @media screen and (max-width: px-to-rem(949px)) {
-        margin-top: px-to-rem(-170px);
-        margin-left: px-to-rem(-110px);
-      }
-
-      @media screen and (min-width: px-to-rem(950px)) and (max-width: px-to-rem(1274px)) {
-        margin-top: px-to-rem(-170px);
-        margin-left: px-to-rem(-60px);
-      }
-
-      @media screen and (min-width: px-to-rem(1275px)) and (max-width: px-to-rem(1549px)) {
-        margin-left: px-to-rem(-40px);
-        margin-top: px-to-rem(-119px);
-      }
-
-
-      @media screen and (min-width: px-to-rem(1550px)) and (max-width: px-to-rem(1850px)) {
-        margin-top: px-to-rem(175px);
-
-      }
-
-      &__item{
-        color: white;
-        font-size: px-to-rem(20px);
-        font-family: sans-serif;
-        font-weight: 400;
-        margin-top: px-to-rem(260px);
-        margin-left: px-to-rem(-60px);
-
-        @media screen and (max-width: px-to-rem(949px)) {
-          font-size: px-to-rem(8px);
-          margin-left: px-to-rem(-45px);
-        }
-
-        @media screen and (min-width: px-to-rem(950px)) and (max-width: px-to-rem(1274px)) {
-          font-size: px-to-rem(8px);
-          margin-left: px-to-rem(-45px);
-        }
-
-
-        @media screen and (min-width: px-to-rem(1275px)) and (max-width: px-to-rem(1549px)) {
-          font-size: px-to-rem(11px);
-          margin-left: px-to-rem(-45px);
-        }
-
-
-      }
-
-      &__img{
-        background-image: url("../../images/rain.png");
-        width: px-to-rem(70px);
-        height: px-to-rem(70px);
-        background-size: cover;
-        margin-top: px-to-rem(180px);
-
-        @media screen and (max-width: px-to-rem(949px)) {
-          width: px-to-rem(45px);
-          height: px-to-rem(45px);
-          margin-top: px-to-rem(210px);
-          margin-left: px-to-rem(-120px);
-        }
-
-        @media screen and  (min-width: px-to-rem(950px)) and (max-width: px-to-rem(1549px)) {
-          margin-top: px-to-rem(210px);
-        }
-
-        @media screen and (min-width: px-to-rem(950px)) and (max-width: px-to-rem(1549px)) {
-          width: px-to-rem(45px);
-          height: px-to-rem(45px);
-        }
-
-      }
-    }
   }
 }
 
@@ -613,21 +541,21 @@ body {
     &__png{
 
       &:nth-child(1){
-        background-image: url("src/images/email.png");
+        background-image: url("../../images/email.png");
         width: px-to-rem(40px);
         height: px-to-rem(40px);
         background-size: cover;
         margin-inline: px-to-rem(20px);
       }
       &:nth-child(2){
-        background-image: url("src/images/github.png");
+        background-image: url("../../images/github.png");
         width: px-to-rem(40px);
         height: px-to-rem(40px);
         background-size: cover;
         margin-inline: px-to-rem(20px);
       }
       &:nth-child(3){
-        background-image: url("src/images/linkedin.png");
+        background-image: url("../../images/linkedin.png");
         width: px-to-rem(40px);
         height: px-to-rem(40px);
         background-size: cover;
