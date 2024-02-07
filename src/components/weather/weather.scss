@@ -386,7 +386,7 @@ body {
       font-weight: 400;
       @media screen and (max-width: px-to-rem(949px)) {
         font-size: px-to-rem(45px);
-        margin-top: px-to-rem(-85px);
+        margin-top: px-to-rem(-10px);
         margin-left: px-to-rem(20px);
       }
 
@@ -411,7 +411,7 @@ body {
 
       @media screen and (max-width: px-to-rem(949px)) {
         @include flex(center, column);
-        margin-top: px-to-rem(-200px);
+        margin-top: px-to-rem(-135px);
         margin-left: px-to-rem(-150px);
         width: px-to-rem(300px);
       }
