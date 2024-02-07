@@ -25,7 +25,6 @@ const Weather = () => {
             .then(response => {
                 setWeatherData(response.data);
                 checkAndChangeBackground();
-                checkAndChangepng();
             })
             .catch(error => {
                 console.error('Błąd podczas pobierania danych pogodowych:', error);
@@ -40,52 +39,28 @@ const Weather = () => {
         body.style.backgroundImage = `url('${backgroundImages[randomIndex]}')`;
     };
 
-    const checkAndChangepng = () => {
-        const weatherDescription = weatherData.weather?.[0]?.description?.toLowerCase();
-        const icon = document.querySelector('.weather__container__column__img');
-
-        if (weatherDescription && weatherDescription.includes('clear')) {
-            icon.style.backgroundImage = "url('../../images/sunny.png";
-        }
-        if (weatherDescription && weatherDescription.includes('snow')) {
-            icon.style.backgroundImage = "url('/src/images/icons8-snow-96.png";
-        }
-        if (weatherDescription && weatherDescription.includes('rain')) {
-            icon.style.backgroundImage = "url('/src/images/rain.png";
-        }
-        if (weatherDescription && weatherDescription.includes('storm')) {
-            icon.style.backgroundImage = "url('/src/images/storm.png";
-        }
-        if (weatherDescription && weatherDescription.includes('mist')) {
-            icon.style.backgroundImage = "url('/src/images/mist.png";
-        }
-        if (weatherDescription && weatherDescription.includes('fog')) {
-            icon.style.backgroundImage = "url('/src/images/mist.png";
-        }
-        if (weatherDescription && weatherDescription.includes('clouds')) {
-            icon.style.backgroundImage = "url('/src/images/clouds.png";
-        }
-    };
 
     const getCurrentTime = () => {
-        const now = new Date();
-        const hours = now.getHours().toString().padStart(2, '0');
-        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const timestamp = weatherData.dt;
+        const date = new Date(timestamp * 1000);
+        const hours = date.getHours().toString().padStart(2, '0');
+        const minutes = date.getMinutes().toString().padStart(2, '0');
         return `${hours}:${minutes}`;
     };
 
     const getCurrentDayOfWeek = () => {
         const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        const now = new Date();
-        const dayOfWeek = daysOfWeek[now.getDay()];
-        return dayOfWeek;
+        const timestamp = weatherData.dt;
+        const dayOfWeek = new Date(timestamp * 1000).getDay();
+        return daysOfWeek[dayOfWeek];
     };
 
     const getCurrentDate = () => {
-        const now = new Date();
-        const day = now.getDate().toString().padStart(2, '0');
-        const month = now.toLocaleString('en-US', { month: 'short' });
-        const year = now.getFullYear().toString().slice(-2);
+        const timestamp = weatherData.dt;
+        const date = new Date(timestamp * 1000);
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = date.toLocaleString('en-US', { month: 'short' });
+        const year = date.getFullYear().toString().slice(-2);
         return `${day} ${month}'${year}`;
     };
 
